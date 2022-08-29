@@ -62,7 +62,7 @@ $(function () {
         layer.msg(res.message)
         //将身份认证信息token存入本地存储,方便后续认证
         localStorage.setItem('token', res.token)
-        location.href = '/index.html'
+        location.href = './index.html'
       }
     })
   })
