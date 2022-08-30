@@ -22,23 +22,10 @@ function getUserInfo() {
     $.ajax({
         method: 'get',
         url: '/my/userinfo',
-        //headers就是请求头部
-        headers: {
-            Authorization: localStorage.getItem('token') || ''
-        },
         success: function (res) {
             if (res.status !== 0) return layui.layer.msg(res.message)
             //调用渲染用户头像函数
             renderAvatar(res.data)
-        },
-        complete: function (res) {
-            console.log(res);
-            if (res.responseJSON.status === 1 && res.responseJSON.message === '身份认证失败！') {
-                // 1. 强制清空token
-                localStorage.removeItem('token')
-                // 2. 强制跳转到登录页面
-                location.href = 'login.html'
-            }
         }
     })
 }
@@ -47,7 +34,7 @@ function renderAvatar(user) {
     //1. 如果昵称不存在,就渲染为登录名
     let name = user.nickname || user.username
     //2. 渲染欢迎文本
-    $('#welcome').text(`欢迎,${name}`)
+    $('#welcome').text(`欢迎您,${name}`)
     // 3.按需求渲染用户头像
     if (user.user_pic !== null) {
         //3.1渲染图片头像

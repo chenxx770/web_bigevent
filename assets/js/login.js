@@ -37,8 +37,10 @@ $(function () {
       password: $('#form_reg [name=password]').val(),
     }
     // 发起ajax请求
-    $.post('/api/reguser',
-      data, function (res) {
+    $.post(
+      '/api/reguser',
+      data,
+      function (res) {
         if (res.status !== 0) {
           return layer.msg(res.message)
         } else {

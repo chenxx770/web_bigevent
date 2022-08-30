@@ -1,0 +1,12 @@
+html,
+body {
+  margin: 0;
+  height: 0;
+}
+body {
+  background: #f1f2f5;
+  padding: 15px;
+}
+.layui-form {
+  width: 500px;
+}
